@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Krish | UI/UX Designer</title>
+    <meta
+      name="description"
+      content="Krish is a UI/UX designer focused on intuitive and user-centered digital experiences."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      const savedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
+    <script>
+      window.tailwind = window.tailwind || {};
+      window.tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"]
+            },
+            boxShadow: {
+              soft: "0 24px 80px rgba(15, 23, 42, 0.14)",
+              glow: "0 24px 80px rgba(96, 165, 250, 0.16)"
+            }
+          }
+        }
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="font-sans antialiased">
+    <div id="launchScreen" class="launch-screen" aria-hidden="true">
+      <div class="launch-orb launch-orb-one"></div>
+      <div class="launch-orb launch-orb-two"></div>
+      <div class="launch-core">
+        <span class="launch-chip">Portfolio Experience</span>
+        <div class="launch-mark">
+          <span>K</span>
+        </div>
+        <p class="launch-name">Krish</p>
+        <p class="launch-role">UI/UX Designer</p>
+        <div class="launch-words" aria-hidden="true">
+          <span>Minimal</span>
+          <span>Human</span>
+          <span>Precise</span>
+        </div>
+        <div class="launch-progress">
+          <span></span>
+        </div>
+        <button id="skipIntro" type="button" class="launch-skip">
+          Skip intro
+        </button>
+      </div>
+    </div>
+
+    <div class="cursor-aura" aria-hidden="true"></div>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div id="copyToast" class="copy-toast" aria-live="polite"></div>
+
+    <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+      <div class="ambient ambient-one"></div>
+      <div class="ambient ambient-two"></div>
+      <div class="ambient ambient-three"></div>
+      <div class="ambient-grid"></div>
+      <div class="grain-overlay"></div>
+    </div>
+
+    <header class="sticky top-0 z-50">
+      <nav class="mx-auto max-w-6xl px-4 pt-4 sm:px-6 lg:px-8">
+        <div class="glass-nav flex items-center justify-between rounded-3xl px-4 py-3 md:px-5">
+          <a href="#hero" class="text-lg font-semibold tracking-tight text-slate-950 dark:text-slate-100">
+            Krish
+          </a>
+
+          <div class="hidden items-center gap-1 md:flex">
+            <a class="nav-link" href="#about" data-section-link="about">About</a>
+            <a class="nav-link" href="#photo" data-section-link="photo">Photo</a>
+            <a class="nav-link" href="#projects" data-section-link="projects">Projects</a>
+            <a class="nav-link" href="#skills" data-section-link="skills">Skills</a>
+            <a class="nav-link" href="#contact" data-section-link="contact">Contact</a>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button
+              id="themeToggle"
+              type="button"
+              class="icon-button magnetic"
+              data-magnetic
+              aria-label="Toggle color theme"
+              title="Toggle color theme"
+            >
+              <svg class="sun-icon h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2.5M12 19.5V22M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M2 12h2.5M19.5 12H22M4.93 19.07l1.77-1.77M17.3 6.7l1.77-1.77"></path>
+              </svg>
+              <svg class="moon-icon h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>
+              </svg>
+            </button>
+
+            <button
+              id="menuToggle"
+              type="button"
+              class="icon-button magnetic md:hidden"
+              data-magnetic
+              aria-expanded="false"
+              aria-controls="mobileMenu"
+              aria-label="Toggle navigation menu"
+            >
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M4 7h16M4 12h16M4 17h16"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div id="mobileMenu" class="glass-panel mt-2 hidden rounded-3xl p-2 md:hidden">
+          <a class="mobile-link" href="#about" data-section-link="about">About</a>
+          <a class="mobile-link" href="#photo" data-section-link="photo">Photo</a>
+          <a class="mobile-link" href="#projects" data-section-link="projects">Projects</a>
+          <a class="mobile-link" href="#skills" data-section-link="skills">Skills</a>
+          <a class="mobile-link" href="#contact" data-section-link="contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section
+        id="hero"
+        class="mx-auto flex min-h-[94vh] max-w-6xl items-center px-4 pb-16 pt-20 sm:px-6 lg:px-8 lg:pt-24"
+      >
+        <div class="grid w-full items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
+          <div class="reveal" data-reveal>
+            <span class="eyebrow-chip">Interactive UI/UX Portfolio</span>
+            <p class="mt-8 text-sm font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">
+              UI/UX Designer
+            </p>
+            <h1 class="hero-title mt-4">
+              Krish
+            </h1>
+            <p class="hero-tagline mt-6 max-w-2xl">
+              Designing intuitive and user-centered digital experiences.
+            </p>
+            <p class="mt-6 max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300 md:text-lg">
+              I blend structured thinking, visual polish, and interaction design to create calm interfaces that
+              still feel alive. The goal is clarity first, with motion and depth used to elevate every moment.
+            </p>
+            <div class="mt-10 flex flex-wrap gap-4">
+              <a href="#projects" class="primary-button magnetic" data-magnetic>View Projects</a>
+              <a
+                href="assets/Krish_Resume.docx"
+                download="Krish_Resume.docx"
+                class="secondary-button magnetic"
+                data-magnetic
+              >
+                Download Resume
+              </a>
+            </div>
+
+            <div class="mt-12 grid gap-4 sm:grid-cols-3">
+              <article class="metric-card interactive-surface tilt-shell" data-tilt data-spotlight>
+                <p class="metric-value">03</p>
+                <p class="metric-label">Featured projects</p>
+              </article>
+              <article class="metric-card interactive-surface tilt-shell" data-tilt data-spotlight>
+                <p class="metric-value">07</p>
+                <p class="metric-label">Core skills</p>
+              </article>
+              <article class="metric-card interactive-surface tilt-shell" data-tilt data-spotlight>
+                <p class="metric-value">02</p>
+                <p class="metric-label">Themes included</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="reveal" data-reveal data-delay="140">
+            <div class="hero-stage interactive-surface tilt-shell rounded-[2rem] p-4 sm:p-6" data-tilt data-spotlight>
+              <div class="hero-ring hero-ring-one"></div>
+              <div class="hero-ring hero-ring-two"></div>
+              <div class="hero-stage-shell rounded-[1.7rem] p-5 sm:p-6">
+                <div class="flex items-center justify-between gap-4">
+                  <span class="eyebrow-chip">Experience Matrix</span>
+                  <span class="status-pill">Open to Opportunities</span>
+                </div>
+
+                <article class="stage-card stage-card-primary mt-6">
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <p class="stage-label">Signature Approach</p>
+                      <h2 class="stage-title mt-3">Calm visuals, bold motion, human-centered systems.</h2>
+                    </div>
+                    <span class="stage-badge">K</span>
+                  </div>
+                  <p class="stage-copy mt-5">
+                    Interfaces designed to feel effortless at first glance and memorable after interaction.
+                  </p>
+                </article>
+
+                <div class="mt-4 grid gap-4 sm:grid-cols-2">
+                  <article class="stage-card">
+                    <p class="stage-label">Flow Design</p>
+                    <h3 class="stage-mini-title mt-3">Fast journeys</h3>
+                    <p class="stage-copy mt-2">Less friction, better clarity, stronger trust.</p>
+                  </article>
+                  <article class="stage-card">
+                    <p class="stage-label">Visual System</p>
+                    <h3 class="stage-mini-title mt-3">Apple-level polish</h3>
+                    <p class="stage-copy mt-2">Rounded layers, soft depth, smooth transitions.</p>
+                  </article>
+                  <article class="stage-card">
+                    <p class="stage-label">Frontend Edge</p>
+                    <h3 class="stage-mini-title mt-3">Design-to-code thinking</h3>
+                    <p class="stage-copy mt-2">Basic HTML, CSS, and Tailwind knowledge helps ideas land cleanly.</p>
+                  </article>
+                  <article class="stage-card">
+                    <p class="stage-label">Interaction Tone</p>
+                    <h3 class="stage-mini-title mt-3">Controlled energy</h3>
+                    <p class="stage-copy mt-2">More motion, more depth, still premium and professional.</p>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell pt-0">
+        <div class="ticker-band reveal" data-reveal data-delay="80">
+          <div class="ticker-track">
+            <span>UI/UX Design</span>
+            <span>Wireframing</span>
+            <span>Prototyping</span>
+            <span>Human-Centered Design</span>
+            <span>Figma</span>
+            <span>Tailwind CSS</span>
+            <span>Interaction Design</span>
+            <span>UI/UX Design</span>
+            <span>Wireframing</span>
+            <span>Prototyping</span>
+            <span>Human-Centered Design</span>
+            <span>Figma</span>
+            <span>Tailwind CSS</span>
+            <span>Interaction Design</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section-shell">
+        <div class="section-heading reveal" data-reveal>
+          <span class="section-label">About Me</span>
+          <h2 class="section-title">Thoughtful systems with a more immersive visual layer.</h2>
+        </div>
+
+        <div class="mt-10 grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+          <article class="surface-card interactive-surface tilt-shell reveal rounded-[2rem] p-7 sm:p-8" data-reveal data-tilt data-spotlight>
+            <p class="text-lg leading-8 text-slate-700 dark:text-slate-300">
+              I am a UI/UX designer focused on creating intuitive and user-centered digital experiences.
+              With a background in engineering, I approach design problems with structured thinking and
+              usability in mind.
+            </p>
+            <div class="about-divider"></div>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="about-mini-panel">
+                <p class="stage-label">Mindset</p>
+                <p class="mt-3 text-base leading-7 text-slate-600 dark:text-slate-300">
+                  I build experiences that feel calm, clear, and easy to trust.
+                </p>
+              </div>
+              <div class="about-mini-panel">
+                <p class="stage-label">Focus</p>
+                <p class="mt-3 text-base leading-7 text-slate-600 dark:text-slate-300">
+                  Every screen should communicate purpose, hierarchy, and intent instantly.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <div class="grid gap-6">
+            <article
+              class="surface-card interactive-surface tilt-shell reveal rounded-[2rem] p-7 sm:p-8"
+              data-reveal
+              data-delay="100"
+              data-tilt
+              data-spotlight
+            >
+              <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+                Foundations
+              </p>
+              <p class="mt-5 text-base leading-7 text-slate-600 dark:text-slate-300">
+                I also have basic knowledge of HTML, CSS, and Tailwind CSS, which helps me bridge design
+                ideas with practical frontend implementation.
+              </p>
+              <div class="mt-6 flex flex-wrap gap-3">
+                <span class="skill-pill">HTML</span>
+                <span class="skill-pill">CSS</span>
+                <span class="skill-pill">Tailwind CSS</span>
+              </div>
+            </article>
+
+            <article
+              class="surface-card interactive-surface tilt-shell reveal rounded-[2rem] p-7 sm:p-8"
+              data-reveal
+              data-delay="180"
+              data-tilt
+              data-spotlight
+            >
+              <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+                Process
+              </p>
+              <div class="mt-5 space-y-4">
+                <div class="process-step">
+                  <span>01</span>
+                  <div>
+                    <p class="process-title">Understand the user</p>
+                    <p class="process-copy">Map what matters, reduce friction, and clarify the path.</p>
+                  </div>
+                </div>
+                <div class="process-step">
+                  <span>02</span>
+                  <div>
+                    <p class="process-title">Shape the flow</p>
+                    <p class="process-copy">Translate needs into clean journeys, strong hierarchy, and usable screens.</p>
+                  </div>
+                </div>
+                <div class="process-step">
+                  <span>03</span>
+                  <div>
+                    <p class="process-title">Polish the motion</p>
+                    <p class="process-copy">Add premium interaction without overwhelming the experience.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="photo" class="section-shell">
+        <div class="grid items-center gap-10 lg:grid-cols-[0.92fr_1.08fr]">
+          <div class="reveal" data-reveal>
+            <button
+              id="photoTrigger"
+              type="button"
+              class="photo-shell interactive-surface tilt-shell w-full rounded-[2rem] p-3 text-left"
+              data-tilt
+              data-spotlight
+              aria-label="Open profile image preview"
+            >
+              <span class="photo-outline"></span>
+              <div class="overflow-hidden rounded-[1.7rem]">
+                <img
+                  src="assets/krish-photo.png"
+                  alt="Portrait of Krish"
+                  loading="lazy"
+                  class="photo-image h-[420px] w-full object-cover sm:h-[540px]"
+                />
+              </div>
+            </button>
+          </div>
+
+          <div class="reveal" data-reveal data-delay="140">
+            <span class="section-label">Profile Highlight</span>
+            <h2 class="section-title mt-4">A dramatic image moment that still feels clean.</h2>
+            <p class="mt-6 text-base leading-8 text-slate-600 dark:text-slate-300 md:text-lg">
+              The photo section now reacts to pointer movement, amplifies the glow on hover, and opens in a
+              cinematic modal. It adds energy to the portfolio while keeping the visual language elegant.
+            </p>
+            <div class="mt-8 grid gap-4 sm:grid-cols-2">
+              <article class="surface-card interactive-surface tilt-shell rounded-[1.8rem] p-5" data-tilt data-spotlight>
+                <p class="stage-label">Hover Zoom</p>
+                <p class="stage-copy mt-3">A stronger scale response with live motion tracking.</p>
+              </article>
+              <article class="surface-card interactive-surface tilt-shell rounded-[1.8rem] p-5" data-tilt data-spotlight>
+                <p class="stage-label">Modal Preview</p>
+                <p class="stage-copy mt-3">Full-screen focus for a more premium personal brand moment.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section-shell">
+        <div class="section-heading reveal" data-reveal>
+          <span class="section-label">Projects</span>
+          <h2 class="section-title">Dynamic project cards with spotlight motion and richer depth.</h2>
+        </div>
+        <p id="projectsStatus" class="mt-4 text-sm text-slate-500 dark:text-slate-400">
+          Loading project showcase...
+        </p>
+        <div id="projectsGrid" class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
+      </section>
+
+      <section id="skills" class="section-shell">
+        <div class="section-heading reveal" data-reveal>
+          <span class="section-label">Skills</span>
+          <h2 class="section-title">A more expressive skill system with motion, scale, and rhythm.</h2>
+        </div>
+
+        <div class="mt-10 grid gap-6 lg:grid-cols-[0.7fr_1.3fr]">
+          <article class="surface-card interactive-surface tilt-shell reveal rounded-[2rem] p-7 sm:p-8" data-reveal data-tilt data-spotlight>
+            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+              Core Stack
+            </p>
+            <p class="mt-5 text-base leading-7 text-slate-600 dark:text-slate-300">
+              UI/UX design is the center, supported by prototyping, interface systems, and a practical
+              understanding of frontend structure.
+            </p>
+          </article>
+
+          <article
+            class="surface-card interactive-surface tilt-shell reveal rounded-[2rem] p-7 sm:p-8"
+            data-reveal
+            data-delay="120"
+            data-tilt
+            data-spotlight
+          >
+            <div class="flex flex-wrap gap-3">
+              <span class="skill-pill skill-pill-large">UI/UX Design</span>
+              <span class="skill-pill">Wireframing</span>
+              <span class="skill-pill">Prototyping</span>
+              <span class="skill-pill skill-pill-large">Figma</span>
+              <span class="skill-pill">HTML</span>
+              <span class="skill-pill">CSS</span>
+              <span class="skill-pill skill-pill-large">Tailwind CSS</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="section-shell pb-20">
+        <div class="section-heading reveal" data-reveal>
+          <span class="section-label">Contact</span>
+          <h2 class="section-title">Let&apos;s create digital experiences that feel effortless.</h2>
+        </div>
+
+        <div class="mt-10 grid gap-6 lg:grid-cols-[0.72fr_1.28fr]">
+          <article class="surface-card interactive-surface tilt-shell reveal rounded-[2rem] p-7 sm:p-8" data-reveal data-tilt data-spotlight>
+            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+              Reach Out
+            </p>
+            <p class="mt-5 text-base leading-7 text-slate-600 dark:text-slate-300">
+              Recruiters, collaborators, and teams looking for polished digital experiences can get in touch
+              directly. Use the quick copy actions for a faster handoff.
+            </p>
+          </article>
+
+          <div class="grid gap-6 md:grid-cols-2">
+            <article
+              class="contact-card interactive-surface tilt-shell reveal rounded-[2rem] p-6 sm:p-7"
+              data-reveal
+              data-delay="100"
+              data-tilt
+              data-spotlight
+            >
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex gap-4">
+                  <span class="icon-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5">
+                      <path d="M4 6h16v12H4z"></path>
+                      <path d="m4 7 8 6 8-6"></path>
+                    </svg>
+                  </span>
+                  <div>
+                    <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+                      Email
+                    </p>
+                    <a
+                      href="https://mail.google.com/mail/?view=cm&fs=1&to=kristakur240507@gmail.com"
+                      target="_blank"
+                      rel="noreferrer"
+                      class="mt-3 block text-lg font-medium text-slate-900 transition hover:text-sky-600 dark:text-slate-100 dark:hover:text-sky-300"
+                    >
+                      kristakur240507@gmail.com
+                    </a>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  class="copy-button magnetic"
+                  data-magnetic
+                  data-copy="kristakur240507@gmail.com"
+                  data-default-label="Copy"
+                >
+                  Copy
+                </button>
+              </div>
+            </article>
+
+            <article
+              class="contact-card interactive-surface tilt-shell reveal rounded-[2rem] p-6 sm:p-7"
+              data-reveal
+              data-delay="180"
+              data-tilt
+              data-spotlight
+            >
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex gap-4">
+                  <span class="icon-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5">
+                      <path d="M6.5 4.5h3l1.5 4-2 1.5a15 15 0 0 0 5 5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.5 6.7 2 2 0 0 1 6.5 4.5Z"></path>
+                    </svg>
+                  </span>
+                  <div>
+                    <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+                      Phone
+                    </p>
+                    <a
+                      href="tel:9015930632"
+                      class="mt-3 block text-lg font-medium text-slate-900 transition hover:text-sky-600 dark:text-slate-100 dark:hover:text-sky-300"
+                    >
+                      9015930632
+                    </a>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  class="copy-button magnetic"
+                  data-magnetic
+                  data-copy="9015930632"
+                  data-default-label="Copy"
+                >
+                  Copy
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="border-t border-white/40 px-4 py-8 text-center text-sm text-slate-500 dark:border-white/10 dark:text-slate-400"
+    >
+      <p>&copy; 2026 Krish. All rights reserved.</p>
+    </footer>
+
+    <div id="photoModal" class="modal hidden" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="modal-backdrop" data-close-modal></div>
+      <div class="modal-panel rounded-[2rem] p-4">
+        <button type="button" class="icon-button modal-close magnetic" data-magnetic aria-label="Close photo preview" data-close-modal>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5">
+            <path d="M6 6l12 12M18 6 6 18"></path>
+          </svg>
+        </button>
+        <img
+          src="assets/krish-photo.png"
+          alt="Portrait of Krish"
+          loading="lazy"
+          class="modal-image"
+        />
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

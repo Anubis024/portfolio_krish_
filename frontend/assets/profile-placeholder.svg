@@ -1,0 +1,23 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1100" rx="72" fill="#0F172A"/>
+  <rect width="900" height="1100" rx="72" fill="url(#paint0_radial)"/>
+  <circle cx="690" cy="220" r="170" fill="#7DD3FC" fill-opacity="0.22"/>
+  <circle cx="190" cy="280" r="200" fill="#C4B5FD" fill-opacity="0.18"/>
+  <circle cx="472" cy="920" r="230" fill="#93C5FD" fill-opacity="0.14"/>
+  <rect x="92" y="94" width="716" height="912" rx="54" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.18"/>
+  <circle cx="450" cy="418" r="146" fill="white" fill-opacity="0.12"/>
+  <path d="M274 770C274 676.112 350.112 600 444 600H456C549.888 600 626 676.112 626 770V810H274V770Z" fill="white" fill-opacity="0.12"/>
+  <text x="450" y="935" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="52" font-weight="600" letter-spacing="10">
+    KRISH
+  </text>
+  <text x="450" y="988" text-anchor="middle" fill="#BFDBFE" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="500" letter-spacing="6">
+    UI / UX DESIGNER
+  </text>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(450 0) rotate(90) scale(1100 1039.09)">
+      <stop stop-color="#1E3A8A"/>
+      <stop offset="0.45" stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#020617"/>
+    </radialGradient>
+  </defs>
+</svg>

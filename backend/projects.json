@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Campus Mart App",
+    "description": "A student-focused marketplace platform designed to simplify buying and selling within campus. The goal was to create a seamless, fast, and trustworthy experience for students.",
+    "tags": [
+      "Marketplace",
+      "Mobile UX",
+      "Trust Design"
+    ],
+    "link": "https://www.figma.com/design/YtldpjS9AN9I1jSfpM089C/Campus-Mart?node-id=111-49&t=mvjNKeMl7FOOxg5m-1"
+  },
+  {
+    "title": "Hotel Management System UI/UX",
+    "description": "A clean and efficient interface designed for hotel staff to manage bookings, customers, and operations with clarity and efficiency.",
+    "tags": [
+      "Dashboard",
+      "Operations",
+      "Workflow Design"
+    ],
+    "link": "https://hotel-managnent-system-2.vercel.app/"
+  },
+  {
+    "title": "T-Shirt & Poster Designs",
+    "description": "A collection of creative visual designs focused on branding, typography, and visual storytelling.",
+    "tags": [
+      "Branding",
+      "Typography",
+      "Visual Design"
+    ],
+    "link": "#"
+  }
+]

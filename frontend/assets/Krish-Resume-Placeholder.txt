@@ -1,0 +1,23 @@
+Krish Resume Placeholder
+========================
+
+UI/UX Designer
+Email: kristakur240507@gmail.com
+Phone: 9015930632
+
+Summary
+Focused on designing intuitive and user-centered digital experiences with a structured, usability-driven approach.
+
+Skills
+- UI/UX Design
+- Wireframing
+- Prototyping
+- Figma
+- HTML
+- CSS
+- Tailwind CSS
+
+Projects
+- Campus Mart App
+- Hotel Management System UI/UX
+- T-Shirt & Poster Designs
