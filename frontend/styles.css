@@ -6,7 +6,7 @@
   --border: rgba(148, 163, 184, 0.2);
   --border-strong: rgba(148, 163, 184, 0.34);
   --text-primary: #0f172a;
-  --text-muted: #556476;
+  --text-muted: #334155;
   --accent: #0f6cdd;
   --accent-soft: rgba(15, 108, 221, 0.12);
   --shadow-soft: 0 24px 90px rgba(15, 23, 42, 0.12);
@@ -1201,4 +1201,20 @@ html.dark .skill-pill {
   .launch-screen {
     display: none;
   }
+}
+
+/* Enforce text contrast by mapping Tailwind colors to theme variables */
+:root .text-slate-950,
+:root .text-slate-900,
+:root .text-slate-700,
+:root .dark\:text-white,
+:root .dark\:text-slate-100 {
+  color: var(--text-primary) !important;
+}
+
+:root .text-slate-600,
+:root .text-slate-500,
+:root .dark\:text-slate-300,
+:root .dark\:text-slate-400 {
+  color: var(--text-muted) !important;
 }

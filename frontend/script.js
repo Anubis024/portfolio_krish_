@@ -314,12 +314,33 @@ const createProjectCard = (project, index) => {
 
 const loadProjects = async () => {
   try {
-    const response = await fetch("/projects");
-    if (!response.ok) {
-      throw new Error("Unable to fetch projects");
-    }
+    const projects = [
+      {
+        title: "T-shirt Designs",
+        description: "A collection of creative T-shirt designs crafted to showcase visual aesthetics and branding.",
+        tags: ["Graphic Design", "Canva"],
+        link: "https://www.canva.com/design/DAHB7eH1cUM/gYy77ghTesOTolakmuYFhA/edit"
+      },
+      {
+        title: "Campus Mart",
+        description: "A comprehensive UI/UX design for an e-commerce platform tailored for campus students.",
+        tags: ["UI/UX", "Figma", "Prototyping"],
+        link: "https://www.figma.com/design/YtldpjS9AN9I1jSfpM089C/Campus-Mart?node-id=111-49&t=11lhUhcZGN1PSuGQ-1"
+      },
+      {
+        title: "Hotel Management System",
+        description: "Frontend interface and web design for a seamless hotel booking and management experience.",
+        tags: ["Frontend", "Web Design"],
+        link: "https://hotel-managnent-system-2.vercel.app/"
+      },
+      {
+        title: "Academy Website",
+        description: "Modern website design and frontend development for a local educational institution.",
+        tags: ["Frontend", "Web Design"],
+        link: "https://acmehamirpur-frontend-f48f8hu8h-krish-thakurs-projects.vercel.app/"
+      }
+    ];
 
-    const projects = await response.json();
     projectsGrid.innerHTML = "";
 
     projects.forEach((project, index) => {
@@ -338,7 +359,7 @@ const loadProjects = async () => {
     projectsGrid.innerHTML = `
       <article class="surface-card rounded-[2rem] p-6">
         <p class="text-base text-slate-600 dark:text-slate-300">
-          The project gallery is temporarily unavailable. Please try again after starting the backend server.
+          The project gallery is temporarily unavailable. Please try again later.
         </p>
       </article>
     `;
